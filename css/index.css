@@ -1,69 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
-
-/*
-selector {
-    property: value;
-    property2: value2;
-}
-*/
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
-
 :root {
-    font-family: 'DotGothic16', sans-serif;;
+  font-family: "DotGothic16", sans-serif;
+  --main-color: black;
+  --accent-color: rgb(50, 206, 211);
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 980px;
+  margin: auto;
 }
 
 h1 {
-    text-transform: uppercase;
-    margin: 0;
-    text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
 }
 
-.logo {
-    text-transform: uppercase;
+header > nav {
+  background-color: var(--accent-color);
+  padding: 5px;
 }
 
-img {
-    width: 100%;
-    display: block;
-}
-
-header .banner {
-    background-image: url(../img/baby-yoda.svg);
-    background-size: cover;
-    background-position: center;
-    min-height: 400px;
+@media (min-width: 600px) {
+  header > nav > .container {
     display: flex;
+  }
+}
+
+header .banner h1,
+header .logo {
+  color: var(--main-color);
+  font-size: 3.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.burger-icon {
+    font-size: 3.5rem;
+}
+
+#burger-checkbox {
+    display: none;
+}
+
+header nav .menu {
+  display: none;
+  transition: transform 7s;
+  flex-direction: column;
+  margin-left: 5px;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+#burger-checkbox:checked ~ .menu {
+    display: flex;
+    transform: scaleY(1);
+}
+
+@media (min-width: 600px) {
+  .burger-icon {
+      display: none;
+  }
+
+  header nav .menu {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    margin-left: 10%;
+  }
+}
+
+header nav .menu a {
+  color: var(--main-color);
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 header nav .menu a:hover {
-    font-weight: bold;
+  font-weight: bold;
 }
 
-.hello {
-    text-align: center;
-    display: block;
-    margin-top: -100px;
-    font-size: 2rem;
-    color: bisque;
+img {
+  width: 100%;
+  display: block;
 }
 
-#products {
-    color: red;
+header .banner {
+  background-image: url(../img/baby-yoda.svg);
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.products-header {
-    color: green;
+header .banner h1 {
+  color: var(--accent-color);
 }
 
+main .products > article {
+  border: 1px solid var(--main-color);
+  padding: 5px;
+}
 
-p::first-letter {
-    font-size: 3rem;
+main .products > article .buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (min-width: 500px) {
+  main .products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 5px;
+    grid-column-gap: 5px;
+  }
+}
+
+@media (min-width: 700px) {
+  main .products {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 980px) {
+  main .products {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
