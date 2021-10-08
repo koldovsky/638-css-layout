@@ -98,6 +98,7 @@ header .banner {
   background-image: url(../img/baby-yoda.svg);
   background-size: cover;
   background-position: center;
+  /* background-attachment: fixed; */
   min-height: 400px;
   display: flex;
   align-items: center;
